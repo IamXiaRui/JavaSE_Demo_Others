@@ -1,8 +1,26 @@
 package xr_java_reflect;
 
+import java.util.List;
+
 public class Person {
-	private String name;
-	private int age;
+	String name = "Reflect";
+	int age;
+
+	public Person() {
+		System.out.println("person");
+	}
+
+	public Person(String name) {
+		System.out.println("name");
+	}
+
+	public Person(String name, int age) {
+		System.out.println("name age");
+	}
+
+	private Person(List list) {
+		System.out.println("list");
+	}
 
 	public String getName() {
 		return name;
@@ -20,11 +38,4 @@ public class Person {
 		this.age = age;
 	}
 
-
-	Person(String name,int age){
-		this.name = name;
-		this.age = age;
-	}
-	
-	
 }

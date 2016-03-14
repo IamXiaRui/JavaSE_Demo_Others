@@ -1,5 +1,7 @@
 package xr_java_reflect;
 
+import java.util.List;
+
 /*
  * 反射的基本概念
  * 
@@ -22,3 +24,4 @@ public class ReflectTest {
 	}
 
 }
+
