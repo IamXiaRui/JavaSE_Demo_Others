@@ -44,6 +44,7 @@ public class ReflectClassTest {
 		System.out.println(p_four.name);
 	}
 
+	@Test
 	public void test_five() throws Exception {
 		// 反射一个参数类
 		Class class_five = Class.forName("xr_java_reflect.Person");
