@@ -43,4 +43,12 @@ public class ReflectClassTest {
 		Person p_four = (Person) c_four.newInstance(new ArrayList());
 		System.out.println(p_four.name);
 	}
+
+	public void test_five() throws Exception {
+		// 反射一个参数类
+		Class class_five = Class.forName("xr_java_reflect.Person");
+		// 创建无参类对象
+		Person p_five = (Person) class_five.newInstance();
+		System.out.println(p_five.name);
+	}
 }
