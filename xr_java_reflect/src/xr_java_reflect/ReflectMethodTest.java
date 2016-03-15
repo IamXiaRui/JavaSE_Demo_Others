@@ -43,4 +43,13 @@ public class ReflectMethodTest {
 		me.invoke(p, "xiarui", 123);
 	}
 
+	// 反射静态方法
+	@Test
+	public void test4() throws Exception {
+		Class class4 = Class.forName("xr_java_reflect.Person");
+		Method me = class4.getMethod("getNames", int.class);
+		// 静态方法的反射 不需要指定对象
+		me.invoke(null, 23);
+	}
+
 }

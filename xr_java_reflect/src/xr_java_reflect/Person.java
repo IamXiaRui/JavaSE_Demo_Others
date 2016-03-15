@@ -37,4 +37,7 @@ public class Person {
 		System.out.println(name + age);
 	}
 
+	public static void getNames(int age) {
+		System.out.println(age);
+	}
 }
