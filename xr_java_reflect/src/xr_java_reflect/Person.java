@@ -6,6 +6,7 @@ public class Person {
 	String name = "Reflect";
 	int age;
 
+	// 几种不同的构造函数
 	public Person() {
 		System.out.println("person");
 	}
@@ -22,20 +23,18 @@ public class Person {
 		System.out.println("list");
 	}
 
-	public String getName() {
-		return name;
+	// 几种不同的方法
+
+	public void get() {
+		System.out.println("get");
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void getName(String name) {
+		System.out.println(name);
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	private void getString(String name, int age) {
+		System.out.println(name + age);
 	}
 
 }
