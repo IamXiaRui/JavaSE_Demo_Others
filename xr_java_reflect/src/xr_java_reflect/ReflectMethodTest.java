@@ -52,4 +52,14 @@ public class ReflectMethodTest {
 		me.invoke(null, 23);
 	}
 
+	// 反射main方法
+	@Test
+	public void test5() throws Exception {
+		Class class4 = Class.forName("xr_java_reflect.Person");
+		Method me = class4.getMethod("main", String[].class);
+		// main方法一定要返回 Object类型
+		me.invoke(null, new Object[] { new String[] { "xiarui", "iamxiarui" } });
+		// me.invoke(null, (Object) new String[] { "xiarui", "iamxiarui" });
+	}
+
 }
