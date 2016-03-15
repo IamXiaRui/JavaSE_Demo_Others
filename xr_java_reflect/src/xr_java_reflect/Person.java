@@ -3,8 +3,8 @@ package xr_java_reflect;
 import java.util.List;
 
 public class Person {
-	String name = "Reflect";
-	int age;
+	public String name = "Reflect";
+	public int age;
 
 	// 几种不同的构造函数
 	public Person() {
