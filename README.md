@@ -177,6 +177,86 @@
 
 	}
 
+##内省
+###基本概念
+
+１、Ｊａｖａｂｅａｎ：公共Java类，但是为了编辑工具识别，需要满足至少三个条件：
+
+>①有一个public默认构造器（例如无参构造器）。
+
+>②属性使用public 的get，set方法访问，也就是说设置成private，同时get，set方法与属性名的大小也需要对应。例如属性name，get方法就要写成，public String getＮame(){},N大写。
+
+>③需要序列化。这个是框架，工具跨平台反映状态必须的。
+
+２、Ｉｎｔｒｏｓｐｅｃｔｏｒ：内省是Java语言对Bean类属性、事件的一种缺省处理方法。
+
+３、属性由ｇｅｔ和ｓｅｔ方法来决定。
+
+
+###内省操作ｂｅａｎ的属性
+
+１、内省访问类属性
+
+	static BeanInfo	getBeanInfo(Class<?> beanClass) 
+	  在 Java Bean 上进行内省，了解其所有属性、公开的方法和事件。
+
+
+２、得到属性描述器
+
+	PropertyDescriptor[]	getPropertyDescriptors() 
+	  获得 beans PropertyDescriptor。
+
+
+３、得到属性的ｓｅｔ　和　ｇｅｔ方法
+
+	Method	getReadMethod() 
+	   获得应该用于读取属性值的方法。
+	Method	getWriteMethod() 
+	   获得应该用于写入属性值的方法。
+
+示例代码：
+
+	public void test1() throws Exception {
+		Person p = new Person();
+
+		// 内省访问类的属性
+		// BeanInfo bi = Introspector.getBeanInfo(Person.class);
+
+		// 去掉Object中默认的类属性
+		BeanInfo bi = Introspector.getBeanInfo(Person.class, Object.class);
+
+		// 获取属性描述器
+		PropertyDescriptor[] pds = bi.getPropertyDescriptors();
+
+		// 遍历属性描述器 得到类中的每一个属性 属性是根据类中get 和 set方法的个数决定的
+		for (PropertyDescriptor pd : pds) {
+			System.out.println(pd.getName());
+		}
+	}
+
+操作单个属性：
+
+	public void test2() throws Exception {
+		Person p = new Person();
+
+		// 得到这个属性的描述器
+		PropertyDescriptor pd = new PropertyDescriptor("name", Person.class);
+
+		// 获取这个属性的方法
+		System.out.println(pd.getPropertyType());
+
+		// 得到这个属性的 set方法
+		Method me = pd.getWriteMethod();
+
+		me.invoke(p, "iamxiarui");
+
+		// 得到这个属性的get方法
+		me = pd.getReadMethod();
+
+		System.out.println(p.getName());
+	}
+
+
 
 
 
