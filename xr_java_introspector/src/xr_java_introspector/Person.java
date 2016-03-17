@@ -1,5 +1,9 @@
 package xr_java_introspector;
-
+/*
+ * µäĞÍµÄJavaBean
+ * 
+ * 
+ * */
 import java.util.List;
 
 public class Person {
